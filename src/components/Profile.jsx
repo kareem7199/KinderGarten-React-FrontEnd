@@ -41,6 +41,19 @@ export default function Profile({ teacher }) {
                         />
                     </div>
 
+                    <div className="flex justify-center w-full gap-4 items-center border-b pb-10">
+                        <label htmlFor="createdAt" className='font-bold'>Onboarded</label>
+                        <input
+                            className="w-full p-2  bg-mainGrey rounded-xl text-slate-700 outline-kPrimaryColor"
+                            type="text"
+                            name="createdAt"
+                            placeholder="createdAt"
+                            defaultValue={teacher.createdAt}
+                            readOnly
+                            required
+                        />
+                    </div>
+
 
                     {/* <button class="bg-primaryColor hover:bg-primaryHover text-white font-bold py-2 px-4 rounded mb-4 md:w-1/3 w-full">
                         Edit
