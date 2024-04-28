@@ -4,11 +4,11 @@ import Table from '../../../components/Table';
 import { Link } from 'react-router-dom';
 
 export default function Teachers() {
-    const { teachers, deleteTeacher } = useViewModel();
+    const { teachers, deleteTeacher , getTeacherDetails} = useViewModel();
     const headers = [{ id: "id", name: "id" }, { id: "name", name: "Name" }, { id: "email", name: "Email" }, { id: "profilePicture", name: "profile Picture", isImg: true }];
     const controls = {
         delete: deleteTeacher,
-        details: () => console.log("hello")
+        details: getTeacherDetails
     }
 
     return (

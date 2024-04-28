@@ -4,11 +4,12 @@ import { useRecoilState } from 'recoil';
 import { authState } from '../../../recoil';
 import { toast } from 'react-toastify';
 import Swal from "sweetalert2";
+import { useNavigate } from 'react-router-dom';
 
 export default function TeachersViewModel() {
     const [auth , setAuth] = useRecoilState(authState);
     const [teachers , setTeachers] = useState([]);
-
+    const navigate = useNavigate();
     const fetchTeachers = async () => {
         const result = await teachersServices.getTeachers(auth);
         setTeachers(result.data.data);
@@ -33,6 +34,10 @@ export default function TeachersViewModel() {
         }
     };
 
+    const getTeacherDetails = async (id) => {
+        navigate(`/admins/dashboard/teachers/${id}`);
+    }
+
     useEffect( () => {
         fetchTeachers();
     } , []);
@@ -40,6 +45,7 @@ export default function TeachersViewModel() {
   
     return {
         teachers ,
-        deleteTeacher
+        deleteTeacher ,
+        getTeacherDetails
     }
 }

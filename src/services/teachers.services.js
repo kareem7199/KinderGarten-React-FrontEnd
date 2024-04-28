@@ -71,4 +71,19 @@ export default {
             errorHandler(err);
         }
     },
+    async getTeacher(id , auth) {
+        try {
+            const response = await teacherService.get(
+                `/${id} ` ,
+                {
+                    headers: {
+                        Authorization: `Bearer ${auth}`,
+                    },
+                }
+            );
+            return response;
+        } catch (err) {
+            errorHandler(err);
+        }
+    },
 };
