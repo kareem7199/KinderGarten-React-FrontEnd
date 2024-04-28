@@ -8,6 +8,7 @@ export default function LoginViewModel() {
 
   const navigate = useNavigate();
   const [auth, setAuth] = useRecoilState(authState);
+  
   const [formData, setFormData] = React.useState({
     email: "",
     password: ""

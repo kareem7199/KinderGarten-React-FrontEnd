@@ -54,5 +54,22 @@ export default {
         } catch (err) {
             errorHandler(err);
         }
+    } ,
+    async createNewAdmin(data, auth) {
+        try {
+            const response = await adminService.post(
+                "/",
+                data, // Pass the data here
+                {
+                    headers: {
+                        Authorization: `Bearer ${auth}`,
+                    },
+                }
+            );
+            return response;
+        } catch (err) {
+            errorHandler(err);
+        }
     }
+    
 };
