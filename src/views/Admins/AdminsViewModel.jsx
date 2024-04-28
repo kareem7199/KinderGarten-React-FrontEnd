@@ -8,11 +8,13 @@ export default function AdminsViewModel() {
   
     const [auth , setAuth] = useRecoilState(authState);
     const [admins , setAdmins] = useState();
+    const [loading , setLoading] = useState(false);
 
     const fetchAdmins = async () => {
-        const result = await adminsServices.getAdmins(auth); 
-        console.log(result.data.data)
+        setLoading(true);
+        const result = await adminsServices.getAdmins(auth);
         setAdmins(result.data.data);
+        setLoading(false);
     }
 
     const deleteAdmin = async (id) => {
@@ -38,6 +40,7 @@ export default function AdminsViewModel() {
   
     return {
         admins ,
-        deleteAdmin
+        deleteAdmin ,
+        loading
     }
 }

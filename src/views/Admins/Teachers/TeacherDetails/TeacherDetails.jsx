@@ -3,9 +3,10 @@ import { Link, useParams } from "react-router-dom";
 import useViewModel from "./TeacherDetailsViewModel";
 import Profile from "../../../../components/Profile";
 import Table from "../../../../components/Table";
+import Loader from "../../../../components/Loader";
 export default function TeacherDetails() {
   const { id } = useParams();
-  const { setTeacherId, teacherData } = useViewModel();
+  const { setTeacherId, teacherData , loading} = useViewModel();
 
   const headers = [
     { id: "id", name: "id" },
@@ -16,6 +17,9 @@ export default function TeacherDetails() {
   useEffect(() => {
     setTeacherId(id);
   }, []);
+
+  if(loading)
+    return <Loader/>
 
   return (
     <div>
@@ -32,7 +36,7 @@ export default function TeacherDetails() {
 
         <h2 className="text-3xl font-bold">Courses</h2>
         <div class="overflow-x-auto">
-          <Table headers={headers} body={teacherData.courses} />
+          {teacherData.courses && <Table headers={headers} body={teacherData.courses} />}
         </div>
       </div>
     </div>

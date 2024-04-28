@@ -7,8 +7,8 @@ export default function AddCourse() {
     const { handleChange, handleSubmit, formDisabled, errors, handleTeacherChange, teachers , customFilter} = useViewModel();
     return (
         <div>
-            <h1 class="text-3xl font-semibold mb-4">Add New Teacher</h1>
-            <Link to="/admins/dashboard/teachers">
+            <h1 class="text-3xl font-semibold mb-4">Add New Course</h1>
+            <Link to="/admins/dashboard/courses">
                 <button class="bg-primaryColor hover:bg-primaryHover text-white font-bold py-2 px-4 rounded mb-4">
                     Back
                 </button>

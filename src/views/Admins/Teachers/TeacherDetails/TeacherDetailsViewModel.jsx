@@ -9,12 +9,15 @@ export default function TeacherDetailsViewModel() {
   const [teacherId, setTeacherId] = useState(0);
   const [teacherData , setTeacherData] = useState({});
   const [auth , setAuth] = useRecoilState(authState);
+  const [loading , setLoading] = useState(true);
   const navigate = useNavigate();
 
   
   useEffect(() => {
     async function exec(id) {
       try {
+
+        setLoading(true);
 
         const response = await teachersServices.getTeacher(teacherId , auth);
 
@@ -24,6 +27,8 @@ export default function TeacherDetailsViewModel() {
         }
 
         setTeacherData(response.data.data);
+        
+        setLoading(false);
 
       } catch (err) {
         console.log(err);
@@ -35,6 +40,7 @@ export default function TeacherDetailsViewModel() {
 
   return {
     setTeacherId ,
-    teacherData
+    teacherData ,
+    loading
   }
 }

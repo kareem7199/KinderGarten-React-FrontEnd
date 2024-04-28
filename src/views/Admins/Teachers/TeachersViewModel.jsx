@@ -9,10 +9,14 @@ import { useNavigate } from 'react-router-dom';
 export default function TeachersViewModel() {
     const [auth , setAuth] = useRecoilState(authState);
     const [teachers , setTeachers] = useState([]);
+    const [loading , setLoading] = useState(true);
+
     const navigate = useNavigate();
     const fetchTeachers = async () => {
+        setLoading(true);
         const result = await teachersServices.getTeachers(auth);
         setTeachers(result.data.data);
+        setLoading(false);
     }
 
     const deleteTeacher = async (teacherId) => {
@@ -46,6 +50,7 @@ export default function TeachersViewModel() {
     return {
         teachers ,
         deleteTeacher ,
-        getTeacherDetails
+        getTeacherDetails,
+        loading
     }
 }

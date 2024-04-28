@@ -2,14 +2,18 @@ import React from 'react'
 import Table from '../../components/Table'
 import useViewModel from './AdminsViewModel'
 import { Link } from 'react-router-dom';
+import Loader from '../../components/Loader';
 Link
 export default function Admins() {
 
-  const { admins, deleteAdmin } = useViewModel();
+  const { admins, deleteAdmin , loading} = useViewModel();
   const headers = [{ id: "id", name: "id" }, { id: "name", name: "Name" }, { id: "email", name: "Email" }];
   const controls = {
     delete: deleteAdmin
   }
+
+  if(loading)
+    return <Loader/>
 
   return (
     <div>
@@ -21,7 +25,8 @@ export default function Admins() {
       </Link>
 
       <div class="overflow-x-auto">
-        <Table headers={headers} body={admins} control={controls} />
+        
+        {admins &&  <Table headers={headers} body={admins} control={controls} />}
       </div>
     </div>
   )
