@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import adminsServices from '../../../../services/teachers.services';
 import { useRecoilState } from 'recoil';
 import { authState } from '../../../../recoil';
 import { useNavigate } from 'react-router-dom';

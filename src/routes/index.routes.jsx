@@ -10,6 +10,7 @@ import AddNewAdmin from "../views/Admins/AddNewAdmin/AddNewAdmin";
 import AddNewTeacher from "../views/Admins/Teachers/AddNewTeacher/AddNewTeacher";
 import TeacherDetails from "../views/Admins/Teachers/TeacherDetails/TeacherDetails";
 import Courses from "../views/Admins/Courses/Courses";
+import AddCourse from "../views/Admins/Courses/AddCourse/AddCourse";
 export default function Routes() {
   const element = useRoutes([
     {
@@ -59,6 +60,10 @@ export default function Routes() {
             {
               path: "courses",
               element: <Courses />,
+            },
+            {
+              path: "courses/add",
+              element: <AddCourse />,
             },
           ],
         },

@@ -15,7 +15,7 @@ export default function Admins() {
     <div>
       <h1 class="text-3xl font-semibold mb-4">Admins</h1>
       <Link to="/admins/dashboard/admins/add">
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4">
+        <button class="bg-primaryColor hover:bg-primaryHover text-white font-bold py-2 px-4 rounded mb-4">
           Create new admin
         </button>
       </Link>

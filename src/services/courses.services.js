@@ -41,5 +41,21 @@ export default {
             errorHandler(err);
         }
     },
+    async createNewCourse(data, auth) {
+        try {
+            const response = await courseService.post(
+                `/`,
+                data, 
+                {
+                    headers: {
+                        Authorization: `Bearer ${auth}`,
+                    },
+                }
+            );
+            return response;
+        } catch (err) {
+            errorHandler(err);
+        }
+    },
     
 };

@@ -15,7 +15,7 @@ export default function Teachers() {
         <div>
             <h1 class="text-3xl font-semibold mb-4">Teachers</h1>
             <Link to="/admins/dashboard/teachers/add">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4">
+                <button class="bg-primaryColor hover:bg-primaryHover text-white font-bold py-2 px-4 rounded mb-4">
                     Create new teacher
                 </button>
             </Link>

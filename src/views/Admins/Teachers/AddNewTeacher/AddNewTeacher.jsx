@@ -10,7 +10,7 @@ export default function AddNewTeacher() {
     <div>
       <h1 class="text-3xl font-semibold mb-4">Add New Teacher</h1>
       <Link to="/admins/dashboard/teachers">
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4">
+        <button class="bg-primaryColor hover:bg-primaryHover text-white font-bold py-2 px-4 rounded mb-4">
           Back
         </button>
       </Link>
@@ -110,7 +110,7 @@ export default function AddNewTeacher() {
           </div>
         </Dragger>
 
-        <input type="submit" value="Submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full cursor-pointer" disabled={formDisabled} />
+        <input type="submit" value="Submit" className="bg-primaryColor hover:bg-primaryHover text-white font-bold py-2 px-4 rounded w-full cursor-pointer" disabled={formDisabled} />
 
       </form>
     </div>
