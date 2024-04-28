@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import useModelView from './AddNewAdminViewModel'
+import useViewModel from './AddNewAdminViewModel'
 
 export default function AddNewAdmin() {
-    const { handleChange, handleSubmit, formDisabled, errors } = useModelView();
+    const { handleChange, handleSubmit, formDisabled, errors } = useViewModel();
     return (
         <div>
             <h1 class="text-3xl font-semibold mb-4">Add New Admin</h1>

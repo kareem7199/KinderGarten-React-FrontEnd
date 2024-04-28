@@ -42,7 +42,7 @@ export default {
     },
     async deleteTeacher(id, auth) {
         try {
-            const response = await adminService.delete(
+            const response = await teacherService.delete(
                 `/${id}`,
                 {
                     headers: {
@@ -54,5 +54,21 @@ export default {
         } catch (err) {
             errorHandler(err);
         }
-    }
+    },
+    async createNewTeacher(data, auth) {
+        try {
+            const response = await teacherService.post(
+                `/`,
+                data, 
+                {
+                    headers: {
+                        Authorization: `Bearer ${auth}`,
+                    },
+                }
+            );
+            return response;
+        } catch (err) {
+            errorHandler(err);
+        }
+    },
 };

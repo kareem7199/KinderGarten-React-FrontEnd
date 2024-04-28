@@ -1,21 +1,24 @@
 import React from 'react'
 import useViewModel from './TeachersViewModel'
 import Table from '../../../components/Table';
+import { Link } from 'react-router-dom';
 
 export default function Teachers() {
     const { teachers, deleteTeacher } = useViewModel();
-    const headers = [{ id: "id", name: "id" }, { id: "name", name: "Name" }, { id: "email", name: "Email" } , {id : "profilePicture" , name : "profile Picture" , isImg : true}];
+    const headers = [{ id: "id", name: "id" }, { id: "name", name: "Name" }, { id: "email", name: "Email" }, { id: "profilePicture", name: "profile Picture", isImg: true }];
     const controls = {
-        delete: deleteTeacher ,
-        details : () => console.log("hello")
+        delete: deleteTeacher,
+        details: () => console.log("hello")
     }
 
     return (
         <div>
             <h1 class="text-3xl font-semibold mb-4">Teachers</h1>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4">
-                Create new teacher
-            </button>
+            <Link to="/admins/dashboard/teachers/add">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4">
+                    Create new teacher
+                </button>
+            </Link>
 
             <div class="overflow-x-auto">
                 <Table headers={headers} body={teachers} control={controls} />
