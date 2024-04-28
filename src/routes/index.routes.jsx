@@ -9,6 +9,7 @@ import Teachers from "../views/Admins/Teachers/Teachers";
 import AddNewAdmin from "../views/Admins/AddNewAdmin/AddNewAdmin";
 import AddNewTeacher from "../views/Admins/Teachers/AddNewTeacher/AddNewTeacher";
 import TeacherDetails from "../views/Admins/Teachers/TeacherDetails/TeacherDetails";
+import Courses from "../views/Admins/Courses/Courses";
 export default function Routes() {
   const element = useRoutes([
     {
@@ -54,6 +55,10 @@ export default function Routes() {
             {
               path: "teachers/:id",
               element: <TeacherDetails />,
+            },
+            {
+              path: "courses",
+              element: <Courses />,
             },
           ],
         },

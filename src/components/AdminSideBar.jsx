@@ -4,7 +4,7 @@ import {
     useNavigate
 } from "react-router-dom";
 
-import {Baby , Home , Menu , LogOut , LockKeyhole , CircleUser} from 'lucide-react';
+import { Baby, Home, Menu, LogOut, LockKeyhole, CircleUser , BookOpen } from 'lucide-react';
 
 
 // import { authState } from "../recoil/index";
@@ -53,10 +53,10 @@ export default function AdminSideBar() {
 
             <div
                 className={`min-h-screen w-fit sm:max-w-min h-[100%] flex flex-col p-4 bg-primaryColor  shadow-md hover:shadow-2xl z-[2] text-slate-800 font-bold
-                overflow-hidden ${!showNav? " sm:block hidden": " sm:static fixed "}`}
+                overflow-hidden ${!showNav ? " sm:block hidden" : " sm:static fixed "}`}
             >
                 {/* <img src={logo} className="w-32 mb-10" /> */}
-                <Baby  className="text-white mx-auto mb-10" size={40}/>
+                <Baby className="text-white mx-auto mb-10" size={40} />
 
                 <nav className="z-[2] whitespace-nowrap">
                     <ul className="flex flex-col h-full">
@@ -86,6 +86,15 @@ export default function AdminSideBar() {
                                 <CircleUser />
                             </NavLink>
                         </li>
+                        <li className="my-2 ">
+                            <NavLink
+                                to="/admins/dashboard/courses"
+                                className={navClasses}
+                            >
+                                <BookOpen />
+                            </NavLink>
+                        </li>
+
                         <li
                             className="hover:cursor-pointer flex items-center text-white	mt-8 p-2 w-full rounded-xl shadow-xl hover:border-mainRed hover:text-mainRed border-2"
                             onClick={handleLogout}
