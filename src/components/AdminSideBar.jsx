@@ -7,14 +7,14 @@ import {
 import { Baby, Home, Menu, LogOut, LockKeyhole, CircleUser , BookOpen } from 'lucide-react';
 
 
-// import { authState } from "../recoil/index";
-// import { useRecoilState } from "recoil";
+import { authState } from "../recoil/index";
+import { useRecoilState } from "recoil";
 
 
 export default function AdminSideBar() {
 
     const [showNav, setShowNav] = useState(true);
-    // const [token, setToken] = useRecoilState(auth);
+    const [token, setToken] = useRecoilState(authState);
     const navigate = useNavigate();
 
     const navClasses = ({ isActive }) => {
@@ -36,9 +36,9 @@ export default function AdminSideBar() {
     };
 
     const handleLogout = (e) => {
-        // setToken("");
-        localStorage.removeItem("authtoken");
-        navigate("/login");
+        setToken("");
+        localStorage.removeItem("authadmin");
+        navigate("/admins/login");
     };
 
     return (

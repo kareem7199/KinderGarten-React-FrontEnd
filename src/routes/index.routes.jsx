@@ -11,7 +11,17 @@ import AddNewTeacher from "../views/Admins/Teachers/AddNewTeacher/AddNewTeacher"
 import TeacherDetails from "../views/Admins/Teachers/TeacherDetails/TeacherDetails";
 import Courses from "../views/Admins/Courses/Courses";
 import AddCourse from "../views/Admins/Courses/AddCourse/AddCourse";
+
+function CheckAdmin() {
+  if (
+    !localStorage.getItem("authadmin")
+  )
+    return <h1>UnAuthorized</h1>;
+  return <Outlet />;
+}
+
 export default function Routes() {
+
   const element = useRoutes([
     {
       // path: "/",
@@ -30,43 +40,47 @@ export default function Routes() {
           ),
         },
         {
-          path: "/admins/dashboard",
-          element: <DashboardLayout />,
-          children: [
-            {
-              path: "home",
-              element: <Home />,
-            },
-            {
-              path: "admins",
-              element: <Admins />,
-            },
-            {
-              path: "admins/add",
-              element: <AddNewAdmin />,
-            },
-            {
-              path: "teachers",
-              element: <Teachers />,
-            },
-            {
-              path: "teachers/Add",
-              element: <AddNewTeacher/>,
-            },
-            {
-              path: "teachers/:id",
-              element: <TeacherDetails />,
-            },
-            {
-              path: "courses",
-              element: <Courses />,
-            },
-            {
-              path: "courses/add",
-              element: <AddCourse />,
-            },
-          ],
-        },
+          path: "admins",
+          element: <CheckAdmin />,
+          children: [{
+            path: "dashboard",
+            element: <DashboardLayout />,
+            children: [
+              {
+                path: "home",
+                element: <Home />,
+              },
+              {
+                path: "admins",
+                element: <Admins />,
+              },
+              {
+                path: "admins/add",
+                element: <AddNewAdmin />,
+              },
+              {
+                path: "teachers",
+                element: <Teachers />,
+              },
+              {
+                path: "teachers/Add",
+                element: <AddNewTeacher />,
+              },
+              {
+                path: "teachers/:id",
+                element: <TeacherDetails />,
+              },
+              {
+                path: "courses",
+                element: <Courses />,
+              },
+              {
+                path: "courses/add",
+                element: <AddCourse />,
+              },
+            ],
+          }],
+        }
       ],
     },
     {
