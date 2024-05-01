@@ -7,7 +7,7 @@ import Loader from '../../../components/Loader';
 export default function Users() {
 
     const { users, deleteUser, getUserDetails, loading } = useViewModel();
-    const headers = [{ id: "id", name: "id" }, { id: "name", name: "Name" }, { id: "email", name: "Email" }, { id: "profilePicture", name: "profile Picture", isImg: true }];
+    const headers = [{ id: "id", name: "id" }, { id: "name", name: "Name" } , { id: "profilePicture", name: "profile Picture", isImg: true }];
     const controls = {
         delete: deleteUser,
         details: getUserDetails

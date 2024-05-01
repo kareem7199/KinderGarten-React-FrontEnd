@@ -12,6 +12,7 @@ import TeacherDetails from "../views/Admins/Teachers/TeacherDetails/TeacherDetai
 import Courses from "../views/Admins/Courses/Courses";
 import AddCourse from "../views/Admins/Courses/AddCourse/AddCourse";
 import Users from "../views/Admins/Users/Users";
+import AddNewUser from "../views/Admins/Users/AddNewUser/AddNewUser";
 
 function CheckAdmin() {
   if (
@@ -82,6 +83,10 @@ export default function Routes() {
               {
                 path : "users" ,
                 element : <Users />
+              },
+              {
+                path : "users/add" ,
+                element : <AddNewUser/>
               }
             ],
           }],

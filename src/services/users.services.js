@@ -55,9 +55,9 @@ export default {
             errorHandler(err);
         }
     },
-    async createNewTeacher(data, auth) {
+    async createNewUser(data, auth) {
         try {
-            const response = await teacherService.post(
+            const response = await userService.post(
                 `/`,
                 data, 
                 {
