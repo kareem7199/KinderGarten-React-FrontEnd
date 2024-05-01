@@ -4,7 +4,7 @@ import {
     useNavigate
 } from "react-router-dom";
 
-import { Baby, Home, Menu, LogOut, LockKeyhole, CircleUser , BookOpen } from 'lucide-react';
+import { Baby, Home, Menu, LogOut, LockKeyhole, CircleUser , BookOpen , UsersRound} from 'lucide-react';
 
 
 import { authState } from "../recoil/index";
@@ -92,6 +92,14 @@ export default function AdminSideBar() {
                                 className={navClasses}
                             >
                                 <BookOpen />
+                            </NavLink>
+                        </li>
+                        <li className="my-2 ">
+                            <NavLink
+                                to="/admins/dashboard/users"
+                                className={navClasses}
+                            >
+                                <UsersRound />
                             </NavLink>
                         </li>
 

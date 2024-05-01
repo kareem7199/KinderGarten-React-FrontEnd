@@ -11,6 +11,7 @@ import AddNewTeacher from "../views/Admins/Teachers/AddNewTeacher/AddNewTeacher"
 import TeacherDetails from "../views/Admins/Teachers/TeacherDetails/TeacherDetails";
 import Courses from "../views/Admins/Courses/Courses";
 import AddCourse from "../views/Admins/Courses/AddCourse/AddCourse";
+import Users from "../views/Admins/Users/Users";
 
 function CheckAdmin() {
   if (
@@ -78,6 +79,10 @@ export default function Routes() {
                 path: "courses/add",
                 element: <AddCourse />,
               },
+              {
+                path : "users" ,
+                element : <Users />
+              }
             ],
           }],
         }
