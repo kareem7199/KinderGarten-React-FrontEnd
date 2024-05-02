@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Eye, Trash2 } from 'lucide-react'
+import { Eye, Trash2 , CircleCheckBig , OctagonX} from 'lucide-react'
 import ReactPaginate from 'react-paginate';
 
 export default function Table({ headers, body, control }) {
@@ -31,6 +31,12 @@ export default function Table({ headers, body, control }) {
                         {control?.details && (
                             <th className='px-6 bg-primaryColor text-white text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-md uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left'>Details</th>
                         )}
+                        {control?.accept && (
+                            <th className='px-6 bg-primaryColor text-white text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-md uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left'>Accept</th>
+                        )}
+                        {control?.reject && (
+                            <th className='px-6 bg-primaryColor text-white text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-md uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left'>Reject</th>
+                        )}
                     </tr>
                 </thead>
                 <tbody>
@@ -54,6 +60,22 @@ export default function Table({ headers, body, control }) {
                                     <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded flex gap-2 items-center" onClick={() => control.details(item.id)}>
                                         <Eye />
                                         Details
+                                    </button>
+                                </td>
+                            )}
+                            {control?.accept && (
+                                <td className='border-t-0 px-6 align-middle border-l-0 border-r-0 text-md whitespace-nowrap p-4 text-left text-blueGray-700 '>
+                                    <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded flex gap-2 items-center" onClick={() => control.accept(item.id)}>
+                                    <CircleCheckBig />
+                                        Accept
+                                    </button>
+                                </td>
+                            )}
+                            {control?.reject && (
+                                <td className='border-t-0 px-6 align-middle border-l-0 border-r-0 text-md whitespace-nowrap p-4 text-left text-blueGray-700 '>
+                                    <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded flex gap-2 items-center" onClick={() => control.reject(item.id)}>
+                                    <OctagonX />
+                                        Reject
                                     </button>
                                 </td>
                             )}

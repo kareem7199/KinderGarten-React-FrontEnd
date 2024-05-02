@@ -10,7 +10,7 @@ export default function Users() {
     const headers = [{ id: "id", name: "id" }, { id: "name", name: "Name" } , { id: "profilePicture", name: "profile Picture", isImg: true }];
     const controls = {
         delete: deleteUser,
-        details: getUserDetails
+        // details: getUserDetails
     }
 
     if (loading)

@@ -57,5 +57,57 @@ export default {
             errorHandler(err);
         }
     },
+
+    async getPendingRequests (auth) {
+        try {
+            const response = await courseService.get(
+                `/pending`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${auth}`,
+                    },
+                }
+            );
+            return response;
+        } catch (err) {
+            errorHandler(err);
+        }
+    } ,
+    async acceptRequest (id , auth) {
+        try {
+            const response = await courseService.post(
+                `/accept`,
+                {
+                    id
+                } ,
+                {
+                    headers: {
+                        Authorization: `Bearer ${auth}`,
+                    },
+                }
+            );
+            return response;
+        } catch (err) {
+            errorHandler(err);
+        }
+    } ,
+    async rejectRequest (id , auth) {
+        try {
+            const response = await courseService.post(
+                `/reject`,
+                {
+                    id
+                } ,
+                {
+                    headers: {
+                        Authorization: `Bearer ${auth}`,
+                    },
+                }
+            );
+            return response;
+        } catch (err) {
+            errorHandler(err);
+        }
+    }
     
 };
