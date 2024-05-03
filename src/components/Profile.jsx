@@ -6,7 +6,7 @@ export default function Profile({ teacher }) {
             <div className='flex lg:flex-row flex-col gap-12'>
 
                 <div className='flex gap-10 items-center flex-col bg-white p-10 rounded lg:w-1/4 w-full'>
-                    <img src={teacher.profilePicture} className='rounded-full' alt="" />
+                    <img src={teacher.profilePicture} className='rounded-full w-52 h-52' alt="" />
                     <div className='flex flex-col gap-2 items-center'>
                         <p className='text-2xl font-semibold'>{teacher.name}</p>
                         <p className='text-lg text-gray-500'>{teacher.phone}</p>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet, useRoutes, useLocation } from "react-router-dom";
+import { Outlet, useRoutes } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import DashboardLayout from "../layouts/DashboardLayout";
 import Login from "../views/Admins/Login/Login";
@@ -14,10 +14,27 @@ import AddCourse from "../views/Admins/Courses/AddCourse/AddCourse";
 import Users from "../views/Admins/Users/Users";
 import AddNewUser from "../views/Admins/Users/AddNewUser/AddNewUser";
 import Requests from "../views/Admins/Requests/Requests";
+import TeachersHome from "../views/Teachers/Home/TeachersHome";
+import TeachersLogin from "../views/Teachers/Login/TeachersLogin";
+import TeacherDashboardLayout from "../layouts/TeacherDashboardLayout";
+import HomePage from "../views/HomePage";
 
 function CheckAdmin() {
   if (
     !localStorage.getItem("authadmin")
+  )
+    return <div class="mx-auto bg-primaryColor rounded-lg overflow-hidden shadow-lg p-6 min-h-screen flex justify-center items-center">
+    <div class="text-center mb-4">
+      <h2 class="text-3xl font-bold text-white">Access Denied</h2>
+      <p class="mt-2 text-sm text-white font-semibold">You do not have permission to access this page.</p>
+    </div>
+  </div>
+  return <Outlet />;
+}
+
+function CheckTeacher() {
+  if (
+    !localStorage.getItem("authteacher")
   )
     return <h1>UnAuthorized</h1>;
   return <Outlet />;
@@ -35,10 +52,26 @@ export default function Routes() {
       ),
       children: [
         {
+          path: "/",
+          element: (
+            <>
+              <HomePage />
+            </>
+          ),
+        } ,
+        {
           path: "/admins/login",
           element: (
             <>
               <Login />
+            </>
+          ),
+        },
+        {
+          path: "/teachers/login",
+          element: (
+            <>
+              <TeachersLogin />
             </>
           ),
         },
@@ -82,16 +115,30 @@ export default function Routes() {
                 element: <AddCourse />,
               },
               {
-                path : "users" ,
-                element : <Users />
+                path: "users",
+                element: <Users />
               },
               {
-                path : "users/add" ,
-                element : <AddNewUser/>
+                path: "users/add",
+                element: <AddNewUser />
               },
               {
-                path : "requests" ,
-                element : <Requests/>
+                path: "requests",
+                element: <Requests />
+              },
+            ],
+          }],
+        },
+        {
+          path: "teachers",
+          element: <CheckTeacher />,
+          children: [{
+            path: "dashboard",
+            element: <TeacherDashboardLayout />,
+            children: [
+              {
+                path: "home",
+                element: <TeachersHome />
               },
             ],
           }],
