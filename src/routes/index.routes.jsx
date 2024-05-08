@@ -19,6 +19,7 @@ import TeachersLogin from "../views/Teachers/Login/TeachersLogin";
 import TeacherDashboardLayout from "../layouts/TeacherDashboardLayout";
 import HomePage from "../views/HomePage";
 import TeacherCourses from '../views/Teachers/Courses/Courses'
+import TeacherCourseDetails from "../views/Teachers/Courses/CourseDetails/TeacherCourseDetails";
 
 function CheckAdmin() {
   if (
@@ -144,7 +145,11 @@ export default function Routes() {
               {
                 path : "courses" ,
                 element : <TeacherCourses/>
-              }
+              },
+              {
+                path : "courses/:id" ,
+                element : <TeacherCourseDetails/>
+              },
             ],
           }],
         }

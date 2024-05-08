@@ -26,6 +26,16 @@ export default {
             errorHandler(err);
         }
     } ,
+    async getCourse(id) {
+        try {
+            const response = await courseService.get(
+                `/${id}`
+            );
+            return response;
+        } catch (err) {
+            errorHandler(err);
+        }
+    } ,
     async deleteCourse(id, auth) {
         try {
             const response = await courseService.delete(
@@ -72,10 +82,41 @@ export default {
             errorHandler(err);
         }
     },
+    async getCourseStudents(courseId , auth) {
+        try {
+            const response = await courseService.get(
+                `/getcoursestudents/${courseId}`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${auth}`,
+                    },
+                }
+            );
+            return response;
+        } catch (err) {
+            errorHandler(err);
+        }
+    },
     async getPendingRequests (auth) {
         try {
             const response = await courseService.get(
                 `/pending`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${auth}`,
+                    },
+                }
+            );
+            return response;
+        } catch (err) {
+            errorHandler(err);
+        }
+    } ,
+    async addActivity (id , data , auth) {
+        try {
+            const response = await courseService.post(
+                `/activity/${id}`,
+                data, 
                 {
                     headers: {
                         Authorization: `Bearer ${auth}`,
