@@ -34,7 +34,7 @@ export default function LoginViewModel() {
       navigate("/teachers/dashboard/home");
 
     } catch (err) {
-      toast.error("An error occurred");
+      toast.error(err.response.data.message);
     } finally {
       setFormDisabled(false);
     }

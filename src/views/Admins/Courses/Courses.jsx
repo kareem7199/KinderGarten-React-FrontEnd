@@ -5,7 +5,7 @@ import Table from '../../../components/Table';
 
 export default function Courses() {
     const { courses , deleteCourse} = useViewModel();
-    const headers = [{ id: "id", name: "id" }, { id: "name", name: "Name" }, { id: "price", name: "Price" } , {id : "teacher.name" , name : "Teacher"}];
+    const headers = [{ id: "id", name: "id" }, { id: "name", name: "Name" }, { id: "price", name: "Price" } , {id : "teacherName" , name : "Teacher"}];
     const controls = {
         delete: deleteCourse,
     //     details: getTeacherDetails

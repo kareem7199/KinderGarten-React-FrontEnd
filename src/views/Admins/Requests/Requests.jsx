@@ -6,7 +6,7 @@ import Table from '../../../components/Table';
 export default function Requests() {
   
     const { requests  , loading , acceptRequest , rejectRequest} = useViewModel();
-    const headers = [{ id: "id", name: "id" }, { id: "course.name", name: "Course Name" }, { id: "user.name", name: "Username" }];
+    const headers = [{ id: "id", name: "id" }, { id: "courseName", name: "Course Name" }, { id: "userName", name: "Username" }];
     const controls = {
         accept : acceptRequest ,
         reject : rejectRequest

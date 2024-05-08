@@ -57,7 +57,21 @@ export default {
             errorHandler(err);
         }
     },
-
+    async getTeacherCourses(auth) {
+        try {
+            const response = await courseService.get(
+                `/teachercourses`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${auth}`,
+                    },
+                }
+            );
+            return response;
+        } catch (err) {
+            errorHandler(err);
+        }
+    },
     async getPendingRequests (auth) {
         try {
             const response = await courseService.get(

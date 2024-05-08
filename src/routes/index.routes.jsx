@@ -18,6 +18,7 @@ import TeachersHome from "../views/Teachers/Home/TeachersHome";
 import TeachersLogin from "../views/Teachers/Login/TeachersLogin";
 import TeacherDashboardLayout from "../layouts/TeacherDashboardLayout";
 import HomePage from "../views/HomePage";
+import TeacherCourses from '../views/Teachers/Courses/Courses'
 
 function CheckAdmin() {
   if (
@@ -140,6 +141,10 @@ export default function Routes() {
                 path: "home",
                 element: <TeachersHome />
               },
+              {
+                path : "courses" ,
+                element : <TeacherCourses/>
+              }
             ],
           }],
         }

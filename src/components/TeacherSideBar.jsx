@@ -51,14 +51,14 @@ export default function TeacherSideBar() {
                 {/* <AiOutlineMenu className=" text-white round"/> */}
                 <Menu />
             </div>
-
+            
             <div
                 className={`min-h-screen w-fit sm:max-w-min h-[100%] flex flex-col p-4 bg-primaryColor  shadow-md hover:shadow-2xl z-[2] text-slate-800 font-bold
                 overflow-hidden ${!showNav ? " sm:block hidden" : " sm:static fixed "}`}
             >
                 <Baby className="text-white mx-auto mb-10" size={40} />
                 
-                <img src={teacher.profilePicture} className="w-32 mb-10 rounded-full" />
+                <img src={teacher.profilePicture} className="w-32 mb-10 rounded-full border-white border-2" />
 
                 <nav className="z-[2] whitespace-nowrap">
                     <ul className="flex flex-col h-full">
@@ -69,6 +69,15 @@ export default function TeacherSideBar() {
                             >
                                 {/* <AiOutlineHome className="mx-2" /> */}
                                 <Home />
+                            </NavLink>
+                        </li>
+
+                        <li className="my-2 ">
+                            <NavLink
+                                to="/teachers/dashboard/courses"
+                                className={navClasses}
+                            >
+                                <BookOpen />
                             </NavLink>
                         </li>
 
