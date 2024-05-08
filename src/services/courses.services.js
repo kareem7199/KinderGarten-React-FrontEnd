@@ -128,6 +128,21 @@ export default {
             errorHandler(err);
         }
     } ,
+    async getStudentCourseActivities(id , auth){
+        try {
+            const response = await courseService.get(
+                `/getstudentcourseactivities/${id}`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${auth}`,
+                    },
+                }
+            );
+            return response;
+        } catch (err) {
+            errorHandler(err);
+        }
+    },
     async acceptRequest (id , auth) {
         try {
             const response = await courseService.post(

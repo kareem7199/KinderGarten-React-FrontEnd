@@ -17,7 +17,7 @@ export default function TeacherCourseDetailsViewModel() {
 
   const { id } = useParams();
 
-  const getStudentDetails = (student) => navigate(`/teachers/dashboard/courses/${id}/${student.coursestudentId}`);
+  const getStudentDetails = (student) => navigate(`/teachers/dashboard/courses/course/${student.coursestudentId}`);
 
   const addActivity = (student) => {
     Swal.fire({
@@ -67,7 +67,7 @@ export default function TeacherCourseDetailsViewModel() {
       setLoading(false);
 
     } catch (error) {
-
+      navigate('/404')
     }
   }
   const fetchCourseStudents = async () => {
@@ -80,7 +80,7 @@ export default function TeacherCourseDetailsViewModel() {
       setLoading(false);
 
     } catch (error) {
-
+      navigate('/404')
     }
   }
 
