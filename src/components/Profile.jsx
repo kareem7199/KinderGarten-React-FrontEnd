@@ -15,8 +15,8 @@ export default function Profile({ teacher }) {
 
                 <div className='flex gap-10 bg-white p-10 rounded flex-col w-full items-center'>
 
-                    <div className="flex justify-center w-full gap-4 items-center border-b pb-10">
-                        <label htmlFor="password" className='font-bold'>Email</label>
+                    <div className="flex justify-center w-full gap-4 items-center border-b pb-10 md:flex-row flex-col">
+                        <label htmlFor="password" className='font-bold w-full md:w-1/4'>Email</label>
                         <input
                             className="w-full p-2  bg-mainGrey rounded-xl text-slate-700 outline-kPrimaryColor"
                             type="email"
@@ -28,8 +28,8 @@ export default function Profile({ teacher }) {
                         />
                     </div>
 
-                    <div className="flex justify-center w-full gap-4 items-center border-b pb-10">
-                        <label htmlFor="salary" className='font-bold'>Salary</label>
+                    <div className="flex justify-center w-full gap-4 items-center border-b pb-10 md:flex-row flex-col">
+                        <label htmlFor="salary" className='font-bold w-full md:w-1/4'>Salary</label>
                         <input
                             className="w-full p-2  bg-mainGrey rounded-xl text-slate-700 outline-kPrimaryColor"
                             type="number"
@@ -41,8 +41,8 @@ export default function Profile({ teacher }) {
                         />
                     </div>
 
-                    <div className="flex justify-center w-full gap-4 items-center border-b pb-10">
-                        <label htmlFor="createdAt" className='font-bold'>Onboarded</label>
+                    <div className="flex justify-center w-full gap-4 items-center border-b pb-10 md:flex-row flex-col">
+                        <label htmlFor="createdAt" className='font-bold w-full md:w-1/4'>Onboarded</label>
                         <input
                             className="w-full p-2  bg-mainGrey rounded-xl text-slate-700 outline-kPrimaryColor"
                             type="text"

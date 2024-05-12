@@ -18,7 +18,7 @@ export default function Table({ headers, body, control }) {
     };
 
     return (
-        <div className='block w-full overflow-x-auto bg-white rounded'>
+        <div className='block w-full overflow-x-auto bg-white rounded text-[#78B2C2] font-bold'>
 
             {
                 body && body.length !== 0 && (
@@ -46,6 +46,9 @@ export default function Table({ headers, body, control }) {
                                     )}
                                     {control?.activity && (
                                         <th className='px-6 bg-primaryColor text-white text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-md uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left'>Add Activity</th>
+                                    )}
+                                    {control?.currentActivity && (
+                                        <th className='px-6 bg-primaryColor text-white text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-md uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left'>Add Current Activity</th>
                                     )}
                                 </tr>
                             </thead>
@@ -102,6 +105,14 @@ export default function Table({ headers, body, control }) {
                                                 <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex gap-2 items-center" onClick={() => control.activity(item)}>
                                                     <Plus />
                                                     Add Activity
+                                                </button>
+                                            </td>
+                                        )}
+                                        {control?.currentActivity && (
+                                            <td className='border-t-0 px-6 align-middle border-l-0 border-r-0 text-md whitespace-nowrap p-4 text-left text-blueGray-700 '>
+                                                <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded flex gap-2 items-center" onClick={() => control.currentActivity(item)}>
+                                                    <Plus />
+                                                    Add Current Activity
                                                 </button>
                                             </td>
                                         )}

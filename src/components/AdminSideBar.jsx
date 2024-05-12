@@ -3,6 +3,7 @@ import {
     NavLink,
     useNavigate
 } from "react-router-dom";
+import logo from '../assets/baby.png'
 
 import { Baby, Home, Menu, LogOut, LockKeyhole, CircleUser , BookOpen , UsersRound , Timer} from 'lucide-react';
 
@@ -18,7 +19,7 @@ export default function AdminSideBar() {
     const navigate = useNavigate();
 
     const navClasses = ({ isActive }) => {
-        const mainStyles = "flex items-center text-white border-2  p-2 w-full block rounded-xl justify-center";
+        const mainStyles = "flex items-center text-white border-2  p-2 w-full block rounded-xl justify-center ";
         if (isActive)
             return (
                 mainStyles +
@@ -55,8 +56,11 @@ export default function AdminSideBar() {
                 className={`min-h-screen w-fit sm:max-w-min h-[100%] flex flex-col p-4 bg-primaryColor  shadow-md hover:shadow-2xl z-[2] text-slate-800 font-bold
                 overflow-hidden ${!showNav ? " sm:block hidden" : " sm:static fixed "}`}
             >
-                {/* <img src={logo} className="w-32 mb-10" /> */}
-                <Baby className="text-white mx-auto mb-10" size={40} />
+                
+                <img src={logo} className="mb-10 w-24 mx-auto" />
+
+                {/* <Baby className="text-white mx-auto mb-10" size={40} />
+                 */}
 
                 <nav className="z-[2] whitespace-nowrap">
                     <ul className="flex flex-col h-full">

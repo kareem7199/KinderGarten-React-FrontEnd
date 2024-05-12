@@ -9,10 +9,13 @@ import { useNavigate } from 'react-router-dom';
 export default function CoursesViewModel() {
     const [auth , setAuth] = useRecoilState(authState);
     const [courses , setCourses] = useState([]);
+    const [loading , setLoading] = useState(true);
     const navigate = useNavigate();
     const fetchCourses = async () => {
+        setLoading(true);
         const result = await coursesServices.getAllCourses(auth);
         setCourses(result.data.data);
+        setLoading(false);
     }
 
     const deleteCourse = async (courseId) => {
@@ -25,6 +28,7 @@ export default function CoursesViewModel() {
 
         if (confirmDelete.isConfirmed) {
             try {
+                setLoading(true);
                 await coursesServices.deleteCourse(courseId, auth);
                 toast.success('Course deleted');
                 fetchCourses();
@@ -45,6 +49,7 @@ export default function CoursesViewModel() {
   
     return {
         courses ,
-        deleteCourse
+        deleteCourse ,
+        loading
     }
 }

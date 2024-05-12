@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import { jwtDecode } from 'jwt-decode' 
 import { Baby, Home, Menu, LogOut, LockKeyhole, CircleUser , BookOpen , UsersRound , Timer} from 'lucide-react';
-
+import logo from '../assets/baby.png'
 
 import { authteacher } from "../recoil/index";
 import { useRecoilState } from "recoil";
@@ -19,7 +19,7 @@ export default function TeacherSideBar() {
     const navigate = useNavigate();
 
     const navClasses = ({ isActive }) => {
-        const mainStyles = "flex items-center text-white border-2  p-2 w-full block rounded-xl justify-center";
+        const mainStyles = "flex items-center text-white border-2  p-2 w-full block rounded-xl justify-center ";
         if (isActive)
             return (
                 mainStyles +
@@ -56,7 +56,9 @@ export default function TeacherSideBar() {
                 className={`min-h-screen w-fit sm:max-w-min h-[100%] flex flex-col p-4 bg-primaryColor  shadow-md hover:shadow-2xl z-[2] text-slate-800 font-bold
                 overflow-hidden ${!showNav ? " sm:block hidden" : " sm:static fixed "}`}
             >
-                <Baby className="text-white mx-auto mb-10" size={40} />
+                {/* <Baby className="text-white mx-auto mb-10" size={40} /> */}
+
+                <img src={logo} alt="" className="w-24 mb-10" />
                 
                 <img src={teacher.profilePicture} className="w-32 mb-10 rounded-full border-white border-2" />
 

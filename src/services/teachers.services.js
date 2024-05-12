@@ -71,6 +71,22 @@ export default {
             errorHandler(err);
         }
     },
+    async addCurrentActivity(id , data , auth) {
+        try {
+            const response = await teacherService.post(
+                `/addstatus/${id}`,
+                data, 
+                {
+                    headers: {
+                        Authorization: `Bearer ${auth}`,
+                    },
+                }
+            );
+            return response;
+        } catch (err) {
+            errorHandler(err);
+        }
+    },
     async getTeacher(id , auth) {
         try {
             const response = await teacherService.get(

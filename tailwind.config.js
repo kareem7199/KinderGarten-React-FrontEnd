@@ -4,23 +4,23 @@ export default {
   theme: {
     extend: {
       colors: {
-        primaryColor: "#352D7D",
-        primaryHover : "#4E49A2" ,
+        primaryColor: "#FFAA38",
+        primaryHover : "#FFC577" ,
         mainBlack: "#1f1f1f" ,
-        mainRed : "#FF4966" ,
-        mainGrey : "#F3F4F6",
+        mainRed : "#FFC577" ,
+        mainGrey : "#FFF2DF",
         mainLightBlue : "#0ED8B8"
       },
       fontFamily: {
-        "open-sans": ["Open Sans", "sans-serif"]
+        'baloo2': ['Baloo 2', 'sans-serif'],
       },
       keyframes: {
         bgChange: {
           "0%, 100%": {
-            backgroundColor: "#352D7D",
+            backgroundColor: "#FFC577",
           },
           // "35%": { backgroundColor: "#0ED8B8" },
-          "65%": { backgroundColor: "#161748" },
+          "65%": { backgroundColor: "#FFC577" },
         },
       },
       animation: {

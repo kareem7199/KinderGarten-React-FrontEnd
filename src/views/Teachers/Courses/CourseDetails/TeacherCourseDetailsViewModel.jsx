@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { authteacher } from '../../../../recoil';
 import { useRecoilState } from 'recoil';
 import coursesServices from '../../../../services/courses.services';
+import teacherServices from '../../../../services/teachers.services';
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
 
@@ -84,6 +85,31 @@ export default function TeacherCourseDetailsViewModel() {
     }
   }
 
+  const addCurrentActivity = async (student) => {
+
+    Swal.fire({
+      title: `Enter ${student.name.split(' ')[0]}'s current activity.`,
+      html:  `<input id="swal-input1" class="swal2-input" placeholder="Title">`,
+      showCancelButton: true,
+      confirmButtonText: 'Submit',
+      cancelButtonText: 'Cancel',
+      preConfirm: async () => {
+        const title = document.getElementById('swal-input1').value;
+
+        // Perform validation
+        if (!title) {
+          Swal.showValidationMessage('All fields are required');
+          return false;
+        }
+        
+        const response = await teacherServices.addCurrentActivity(student.id , {title} , auth);
+
+        toast.success(response.data.message);
+
+      },
+    });
+  }
+
   useEffect(() => {
 
     fetchCourse();
@@ -96,7 +122,8 @@ export default function TeacherCourseDetailsViewModel() {
     loading,
     getStudentDetails,
     course,
-    addActivity
+    addActivity ,
+    addCurrentActivity
   }
 
 }

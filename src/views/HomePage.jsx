@@ -2,12 +2,16 @@ import React from 'react'
 import { Baby, LockKeyhole, UserRound } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
+import logo from '../assets/baby.png'
+
 export default function HomePage() {
     return (
         <div className='flex justify-center items-center min-h-screen bg-primaryColor flex-col gap-10 py-10'>
 
             <div className='flex flex-col justify-center items-center gap-4'>
-                <Baby className='text-white' size={64} />
+                {/* <Baby className='text-white' size={64} /> */}
+                <img src={logo} alt="" className='w-36 animate-bounce' />
+
                 <h1 class="text-3xl font-bold text-white">Choose Your Role</h1>
                 <p class="mt-2 text-sm font-semibold text-white">Select your role to sign in</p>
             </div>

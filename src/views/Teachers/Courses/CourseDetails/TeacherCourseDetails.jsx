@@ -5,11 +5,12 @@ import Table from '../../../../components/Table'
 import { Link } from 'react-router-dom';
 export default function TeacherCourseDetails() {
 
-    const { students, loading, getStudentDetails, course, addActivity } = useViewModel();
+    const { students, loading, getStudentDetails, course, addActivity , addCurrentActivity } = useViewModel();
     const headers = [{ id: "id", name: "id" }, { id: "name", name: "Name" }, { id: "profilePicture", name: "profile Picture", isImg: true }];
     const controls = {
         studentdetails: getStudentDetails,
-        activity: addActivity
+        activity: addActivity ,
+        currentActivity : addCurrentActivity
     }
     if (loading) return <Loader />
 
@@ -23,7 +24,7 @@ export default function TeacherCourseDetails() {
             <h1 class="text-3xl font-semibold mb-4">{course?.name} students</h1>
 
             <div class="overflow-x-auto">
-                {students && <Table headers={headers} body={students} control={controls} />}
+                {students?.length > 0 && <Table headers={headers} body={students} control={controls} />}
             </div>
         </div>
     )

@@ -2,14 +2,17 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import useViewModel from "./CoursesViewModel";
 import Table from '../../../components/Table';
+import Loader from '../../../components/Loader';
 
 export default function Courses() {
-    const { courses , deleteCourse} = useViewModel();
+    const { courses , deleteCourse , loading} = useViewModel();
     const headers = [{ id: "id", name: "id" }, { id: "name", name: "Name" }, { id: "price", name: "Price" } , {id : "teacherName" , name : "Teacher"}];
     const controls = {
         delete: deleteCourse,
     //     details: getTeacherDetails
     }
+
+    if(loading) return <Loader/>
 
     return (
         <div>
@@ -21,7 +24,7 @@ export default function Courses() {
             </Link>
 
             <div class="overflow-x-auto">
-                <Table headers={headers} body={courses} control={controls}/>
+                {courses?.length > 0 && <Table headers={headers} body={courses} control={controls}/>}
             </div>
         </div>
     )

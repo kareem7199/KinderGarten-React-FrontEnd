@@ -35,6 +35,7 @@ export default function CouresesViewModel() {
   
     return {
         courses ,
-        getCourseDetails
+        getCourseDetails,
+        loading
   }
 }
