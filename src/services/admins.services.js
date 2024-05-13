@@ -40,6 +40,21 @@ export default {
             errorHandler(err);
         }
     },
+    async getStat(auth) {
+        try {
+            const response = await adminService.get(
+                "/stat",
+                {
+                    headers: {
+                        Authorization: `Bearer ${auth}`,
+                    },
+                }
+            );
+            return response;
+        } catch (err) {
+            errorHandler(err);
+        }
+    } ,
     async deleteAdmin(id, auth) {
         try {
             const response = await adminService.delete(

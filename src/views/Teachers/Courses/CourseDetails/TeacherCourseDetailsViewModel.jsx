@@ -65,8 +65,6 @@ export default function TeacherCourseDetailsViewModel() {
 
       SetCourse(response.data.data);
 
-      setLoading(false);
-
     } catch (error) {
       navigate('/404')
     }
